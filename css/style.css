@@ -1,0 +1,184 @@
+/* style.css */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f5f7; /* Cor de fundo clara, similar ao Safari */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: auto; /* Permite rolagem se o conteúdo for maior que a tela */
+    transition: background-color 0.3s ease; /* Transição suave para o modo escuro */
+}
+/* Estilos para o Modo Escuro */
+body.dark-mode {
+    background-color: #1c1c1e; /* Cor de fundo escura */
+    color: #f5f5f7; /* Cor do texto claro */
+}
+body.dark-mode .search-bar-container {
+    background-color: #333333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+body.dark-mode .search-input {
+    background-color: #333333; /* Mantém a cor do wrapper para o input */
+    color: #f5f5f7;
+}
+body.dark-mode .search-input::placeholder {
+    color: #b0b0b0;
+}
+body.dark-mode .search-input:focus {
+    box-shadow: none; /* Remove sombra extra no foco, já que o wrapper tem sombra */
+}
+body.dark-mode .icon-button {
+    background-color: #444444; /* Fundo mais escuro para os botões de ícone */
+    box-shadow: none; /* Remove sombra extra dos botões de ícone */
+}
+body.dark-mode .icon-button:hover {
+    background-color: #555555; /* Fundo mais escuro no hover */
+}
+body.dark-mode .icon-button svg {
+    fill: #f5f5f7; /* Cor do ícone no modo escuro */
+}
+
+
+.container {
+    max-width: 90%; /* Ajusta a largura máxima para responsividade */
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.site-header {
+    text-align: center;
+    margin-bottom: 2rem; /* Espaçamento entre o cabeçalho e a barra de pesquisa */
+}
+.site-title {
+    font-size: 3rem; /* Tamanho maior para o título principal */
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+.site-subtitle {
+    font-size: 1.5rem; /* Tamanho para o subtítulo */
+    font-weight: 400;
+    color: #666;
+    transition: color 0.3s ease;
+}
+body.dark-mode .site-title {
+    color: #f5f5f7;
+}
+body.dark-mode .site-subtitle {
+    color: #b0b0b0;
+}
+
+
+.search-bar-container {
+    width: 100%;
+    max-width: 600px; /* Largura máxima para a barra de pesquisa */
+    margin-bottom: 3rem; /* Espaçamento abaixo da barra de pesquisa */
+    display: flex; /* Habilita flexbox para alinhar itens */
+    align-items: center; /* Alinha itens verticalmente */
+    background-color: #ffffff; /* Cor de fundo branca para a barra completa */
+    border-radius: 9999px; /* Bordas totalmente arredondadas para a barra */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave para a barra */
+    padding: 0.4rem; /* Padding interno para os elementos */
+    transition: box-shadow 0.2s ease-in-out, background-color 0.3s ease;
+}
+.search-input {
+    flex-grow: 1; /* Permite que o input preencha o espaço disponível */
+    padding: 0.4rem 0.8rem; /* Ajusta padding para dentro do container */
+    border: none;
+    background-color: transparent; /* Fundo transparente para o input */
+    font-size: 1.1rem;
+    outline: none;
+    text-align: center;
+    color: #333;
+    transition: color 0.3s ease;
+}
+.search-input:focus {
+    box-shadow: none; /* Remove a sombra do input individualmente */
+}
+.search-bar-container:focus-within {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12); /* Sombra mais proeminente no foco da barra */
+}
+
+
+.icon-button {
+    background-color: transparent; /* Fundo transparente por padrão */
+    border: none;
+    border-radius: 50%; /* Torna o botão redondo */
+    width: 36px; /* Largura do botão */
+    height: 36px; /* Altura do botão */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, fill 0.3s ease;
+    outline: none;
+    flex-shrink: 0; /* Impede que o botão encolha */
+    margin: 0 0.4rem; /* Margem entre os ícones e o input */
+}
+.icon-button:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Pequeno hover */
+}
+.icon-button svg {
+    width: 20px; /* Tamanho do ícone SVG */
+    height: 20px;
+    fill: #666; /* Cor padrão do ícone */
+    transition: fill 0.3s ease;
+}
+/* Específico para o ícone de pesquisa para um padding maior */
+.search-icon-button {
+     margin-right: 0.8rem;
+}
+/* Específico para o ícone de modo escuro */
+.dark-mode-icon-button {
+    margin-left: 0.8rem;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 2.5rem;
+    }
+    .site-subtitle {
+        font-size: 1.2rem;
+    }
+    .search-input {
+        font-size: 1rem;
+        padding: 0.4rem 0.6rem;
+    }
+    .icon-button {
+        width: 32px;
+        height: 32px;
+    }
+    .icon-button svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 2rem;
+    }
+    .site-subtitle {
+        font-size: 1rem;
+    }
+    .search-input {
+        font-size: 0.9rem;
+    }
+    .icon-button {
+        width: 28px;
+        height: 28px;
+    }
+    .icon-button svg {
+        width: 16px;
+        height: 16px;
+    }
+}
